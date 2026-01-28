@@ -42,8 +42,16 @@ def build_features(values: list[float], win_short: int = 5, win_long: int = 20) 
 def predict_anomalies(values: list[float], artifact_dir: str | Path = "models") -> dict:
     am = load_artifacts(artifact_dir)
 
-    # how many points are lost to rolling windows
     warmup = max(am.win_short, am.win_long) - 1
+
+    #  GUARD: not enough data for rolling windows
+    if len(values) <= warmup:
+        return {
+            "warmup_points_dropped": warmup,
+            "anomaly": [None] * len(values),
+            "anomaly_score": [None] * len(values),
+            "message": f"Need more than {warmup} points to run anomaly detection"
+        }
 
     feats = build_features(values, am.win_short, am.win_long)
     X = feats[am.features]
@@ -53,7 +61,6 @@ def predict_anomalies(values: list[float], artifact_dir: str | Path = "models") 
 
     anomaly = [1 if p == -1 else 0 for p in preds]
 
-    # pad outputs so length matches input length
     padded_anomaly = [None] * warmup + anomaly
     padded_scores = [None] * warmup + scores.tolist()
 
