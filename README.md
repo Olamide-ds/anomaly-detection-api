@@ -1,6 +1,6 @@
 ## Anomaly Detection API (Time-Series)
 
-## Dataset (AWS EC2 CPU Utilization)
+### Dataset (AWS EC2 CPU Utilization)
 This project was developed and tested using an **EC2 CPU utilization time-series dataset** (typical cloud monitoring telemetry).
 
 This API is **dataset-agnostic**: it does not depend on a specific public dataset.  
@@ -21,12 +21,12 @@ It engineers rolling statistical features and uses an **Isolation Forest** model
 
 ---
 
-## Live Demo
+### Live Demo
 - **API Docs (Swagger):** https://anomaly-detection-api-z41e.onrender.com/docs
 
 ---
 
-## Why This Project?
+### Why This Project?
 Monitoring systems generate continuous streams of metrics such as **CPU usage, latency, throughput, transaction volume**, etc. In many real-world setups, anomalies are **rare and unlabeled**, so supervised approaches are not always feasible. This project shows how to:
 - build an **unsupervised** anomaly detector,
 - expose it as an **API**,
@@ -35,7 +35,7 @@ Monitoring systems generate continuous streams of metrics such as **CPU usage, l
 
 ---
 
-## Key Features
+### Key Features
 - Rolling statistical feature engineering (e.g., rolling mean, rolling std)
 - Unsupervised anomaly detection using **Isolation Forest**
 - **Warm-up handling** (early points that can’t form a full rolling window are excluded from scoring)
