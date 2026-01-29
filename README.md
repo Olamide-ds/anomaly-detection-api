@@ -13,7 +13,7 @@ For development/testing, I used:
 - **Signal:** CPU utilization (%)
 - **Granularity:** time-ordered metric values (sampled at a fixed interval)
 - **What I used:** the CPU utilization column as the **univariate series** input to the feature engineering + Isolation Forest pipeline
-- **Preprocessing:** sorted by timestamp, handled missing values (if present), then generated rolling-window features (e.g., rolling mean/std)
+- **Preprocessing:** sorted by timestamp, handled missing values, then generated rolling-window features (e.g., rolling mean/std)
 - **Labels:** not required (unsupervised). Evaluation was done by inspecting score/flag behavior on normal periods vs CPU spikes.
   
 A FastAPI-based, production-style anomaly detection service for **univariate time-series** data.  
