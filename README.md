@@ -15,7 +15,7 @@ For development/testing, I used:
 - **What I used:** the CPU utilization column as the **univariate series** input to the feature engineering + Isolation Forest pipeline
 - **Preprocessing:** sorted by timestamp, handled missing values (if present), then generated rolling-window features (e.g., rolling mean/std)
 - **Labels:** not required (unsupervised). Evaluation was done by inspecting score/flag behavior on normal periods vs CPU spikes.
-- 
+  
 A FastAPI-based, production-style anomaly detection service for **univariate time-series** data.  
 It engineers rolling statistical features and uses an **Isolation Forest** model to flag anomalies and return anomaly scores via a REST API. Docker-ready for deployment.
 
