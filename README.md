@@ -1,4 +1,4 @@
--- # Anomaly Detection API (Time-Series)
+## Anomaly Detection API (Time-Series)
 
 ## Dataset (AWS EC2 CPU Utilization)
 This project was developed and tested using an **EC2 CPU utilization time-series dataset** (typical cloud monitoring telemetry).
