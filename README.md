@@ -3,7 +3,7 @@
 ### Dataset (AWS EC2 CPU Utilization)
 This project was developed and tested using an **EC2 CPU utilization time-series dataset** (typical cloud monitoring telemetry).
 
-This API is **dataset-agnostic**: it does not depend on a specific public dataset.  
+This API is **dataset-agnostic**
 It is designed to accept **any univariate numeric time-series** (e.g., CPU usage, latency, IoT sensor data).
 
 For development/testing, I used:
