@@ -1,6 +1,19 @@
+# Core API
 fastapi
 uvicorn
 pydantic
+
+# Data & ML
 pandas
 scikit-learn
 joblib
+numpy
+
+# RAG / Embeddings
+faiss-cpu
+sentence-transformers
+
+# LLM
+openai
+requests
+
