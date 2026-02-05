@@ -1,19 +1,27 @@
 def anomaly_explanation_prompt(anomaly_output: dict, context: str) -> str:
     return f"""
-You are a senior site reliability and data analyst.
+You are an SRE-focused AI assistant.
 
-An anomaly was detected with the following details:
+Using the anomaly output and the provided operational context, produce a
+STRICT JSON response with the following structure:
+
+{{
+  "root_causes": [string],
+  "impact": [string],
+  "recommended_actions": [string],
+  "assumptions": [string]
+}}
+
+Rules:
+- Return ONLY valid JSON
+- Do NOT include markdown
+- Do NOT include explanations outside the JSON
+- Each list should contain 2–5 concise bullet-style strings
+
+Anomaly Output:
 {anomaly_output}
 
-Relevant operational documentation:
+Operational Context:
 {context}
-
-Tasks:
-1. Identify the most likely root cause(s).
-2. Describe potential operational or business impact.
-3. Recommend concrete next actions.
-4. Clearly state assumptions and uncertainty.
-
-Be concise, structured, and grounded ONLY in the provided context.
 """
 
