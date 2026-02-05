@@ -1,27 +1,34 @@
 def anomaly_explanation_prompt(anomaly_output: dict, context: str) -> str:
     return f"""
-You are an SRE-focused AI assistant.
+You are a senior Site Reliability Engineer.
 
-Using the anomaly output and the provided operational context, produce a
-STRICT JSON response with the following structure:
+You MUST return a VALID JSON OBJECT.
+DO NOT return markdown.
+DO NOT include headings.
+DO NOT include bullet symbols.
+DO NOT include explanations outside JSON.
 
+Use ONLY the schema below.
+
+Schema:
 {{
   "root_causes": [string],
-  "impact": [string],
+  "impact": {{
+    "operational": string,
+    "business": string
+  }},
   "recommended_actions": [string],
-  "assumptions": [string]
+  "assumptions": [string],
+  "uncertainty": string
 }}
 
-Rules:
-- Return ONLY valid JSON
-- Do NOT include markdown
-- Do NOT include explanations outside the JSON
-- Each list should contain 2–5 concise bullet-style strings
+Context:
+{context}
 
-Anomaly Output:
+Anomaly output:
 {anomaly_output}
 
-Operational Context:
-{context}
+Return ONLY JSON.
 """
+
 
