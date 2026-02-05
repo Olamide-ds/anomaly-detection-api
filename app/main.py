@@ -6,6 +6,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
+@app.get("/", include_in_schema=False)
+@app.head("/", include_in_schema=False)
+def root():
+    return {"status": "ok"}
+
 app.include_router(anomaly.router)
 app.include_router(explain.router)
 
