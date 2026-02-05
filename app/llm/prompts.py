@@ -1,16 +1,22 @@
-def anomaly_explanation_prompt(anomaly_output: dict, context: str) -> str:
+def anomaly_explanation_prompt(anomaly_output, context):
     return f"""
-You are a senior Site Reliability Engineer.
+You are an SRE AI assistant.
 
-You MUST return a VALID JSON OBJECT.
-DO NOT return markdown.
-DO NOT include headings.
-DO NOT include bullet symbols.
-DO NOT include explanations outside JSON.
+Analyze the anomaly output and context below.
 
-Use ONLY the schema below.
+Anomaly output:
+{anomaly_output}
 
-Schema:
+Context:
+{context}
+
+Return ONLY valid JSON.
+DO NOT include markdown.
+DO NOT include explanations.
+DO NOT wrap the JSON in quotes.
+DO NOT include ```.
+
+JSON schema:
 {{
   "root_causes": [string],
   "impact": {{
@@ -21,14 +27,5 @@ Schema:
   "assumptions": [string],
   "uncertainty": string
 }}
-
-Context:
-{context}
-
-Anomaly output:
-{anomaly_output}
-
-Return ONLY JSON.
 """
-
 
