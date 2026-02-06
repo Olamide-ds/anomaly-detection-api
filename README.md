@@ -32,7 +32,7 @@ The service is **Docker-ready** for deployment.
 - **API Docs (Swagger):** https://anomaly-detection-api-z41e.onrender.com/docs
 
 ---
-**Why?:** Monitoring metrics are continuous, unlabeled, and anomaly-sparse.
+**Why?-** Monitoring metrics are continuous, unlabeled, and anomaly-sparse.
 This project demonstrates an unsupervised, API-driven approach with proper
 warm-up handling and GenAI-based operational explanations.
 
