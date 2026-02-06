@@ -46,7 +46,7 @@ Monitoring systems generate continuous streams of metrics such as **CPU usage, l
 
 ## How It Works
 ### 1) Input
-You send a list of numeric values representing a time-ordered series.
+Send a list of numeric values representing a time-ordered series.
 
 ### 2) Feature Engineering
 For each point (after enough history exists), the service builds rolling features such as:
